@@ -1,0 +1,6 @@
+interface:
+  display_name: "pdf-to-skill"
+  short_description: "把论文 PDF 转成可迁移研究思路 skill"
+  default_prompt: "Use $pdf-to-skill to extract a paper's transferable research logic and generate a markmap."
+policy:
+  allow_implicit_invocation: true
