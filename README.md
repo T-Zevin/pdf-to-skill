@@ -1,35 +1,76 @@
-# pdf-to-skill
+<h1 align="center">📄 pdf-to-skill</h1>
 
-Turn a scientific paper PDF into a reusable Codex skill that captures the paper's transferable research logic.
+<p align="center">
+  <strong>Turn a scientific paper PDF into a reusable Codex skill for research-logic transfer.</strong>
+  <br />
+  <strong>把一篇科研论文 PDF 转换成可复用的 Codex Skill，用于迁移论文研究思路。</strong>
+</p>
 
-`pdf-to-skill` is inspired by [`book-to-skill`](https://github.com/virgiliojr94/book-to-skill), but it targets a different job. A book skill preserves an author's frameworks across chapters. A paper skill preserves a study's research engine: the problem form, hypothesis, design skeleton, methods spine, figure evidence chain, validation strategy, and the parts that can be migrated to a new research direction.
+<p align="center">
+  <img src="https://img.shields.io/badge/Codex-Skill-2563EB?style=for-the-badge" alt="Codex Skill">
+  <img src="https://img.shields.io/badge/PDF%20%E2%86%92%20Skill-research%20logic-0F766E?style=for-the-badge" alt="PDF to Skill">
+  <img src="https://img.shields.io/badge/Output-Markmap%20%2B%20Skill-F59E0B?style=for-the-badge" alt="Markmap and Skill">
+  <img src="https://img.shields.io/badge/README-English%20%7C%20%E4%B8%AD%E6%96%87-7C3AED?style=for-the-badge" alt="Bilingual README">
+</p>
+
+<p align="center">
+  <a href="#-english">English</a> ·
+  <a href="#-中文">中文</a> ·
+  <a href="#-quick-start">Quick Start</a> ·
+  <a href="#-快速开始">快速开始</a> ·
+  <a href="#-workflow">Workflow</a> ·
+  <a href="#-markmap">Markmap</a>
+</p>
+
+---
 
 ![pdf-to-skill workflow](assets/workflow.svg)
 
-## Why This Exists
+## 🇬🇧 English
 
-Most paper-reading workflows produce summaries. Summaries are useful for memory, but they do not reliably help you reuse a paper's design in another domain.
+`pdf-to-skill` is inspired by [`book-to-skill`](https://github.com/virgiliojr94/book-to-skill), but it solves a different problem.
 
-`pdf-to-skill` treats a paper as a reusable research pattern:
+`book-to-skill` turns a book into a structured skill so an agent can reuse the author's frameworks. `pdf-to-skill` turns one scientific paper into a research-design skill so an agent can reuse the paper's study logic in a new topic, disease, cohort, dataset, assay, endpoint, or intervention.
 
-- What problem form does the paper solve?
-- What hypothesis makes the study publishable?
-- What evidence chain turns data into a claim?
-- Which methods are reusable, and which are domain-specific?
-- How should the same logic be rebuilt for a new disease, dataset, assay, endpoint, or intervention?
+This is not a paper summarizer. It extracts the paper's **research engine**:
 
-## What It Extracts
+- 🧠 research problem and central hypothesis
+- 🧪 study design skeleton
+- 📊 figure and table evidence chain
+- 🧬 methods spine and validation logic
+- 🔁 original-to-target transfer map
+- ⚠️ over-transfer risks and failure modes
+- 🗺️ `markmap` mind map for fast review
 
-| Layer | Extracted Output | Why It Matters |
-|---|---|---|
-| Research engine | Problem, hypothesis, novelty, claim boundary | Keeps the study logic reusable |
-| Design skeleton | Samples, groups, controls, endpoints, validation | Prevents shallow topic swapping |
-| Methods spine | Preprocessing, assays, models, statistics, thresholds | Preserves operational details |
-| Evidence chain | Figure/table logic and claim progression | Helps rebuild a publishable story |
-| Transfer map | Original element -> target-direction equivalent | Makes direction switching explicit |
-| Risk checks | Confounding, overclaiming, missing validation | Reduces invalid method transfer |
+## 🇨🇳 中文
 
-## Repository Structure
+`pdf-to-skill` 受到 [`book-to-skill`](https://github.com/virgiliojr94/book-to-skill) 启发，但目标不同。
+
+`book-to-skill` 是把一本书转换成结构化 skill，让 Agent 可以复用作者的框架。`pdf-to-skill` 是把一篇科研论文转换成“研究设计 skill”，让 Agent 学会这篇论文的研究思路，并迁移到新的疾病、课题、队列、数据集、实验技术、结局指标或干预方向。
+
+它不是普通论文总结工具，而是提取论文的 **研究发动机**：
+
+- 🧠 研究问题与中心假设
+- 🧪 研究设计骨架
+- 📊 图表证据链
+- 🧬 方法主线与验证逻辑
+- 🔁 原论文元素到新方向的迁移映射
+- ⚠️ 过度迁移风险与失败模式
+- 🗺️ 用于快速复盘的 `markmap` 思维导图
+
+## ✨ What It Generates
+
+| Output | Purpose |
+|---|---|
+| `Research Transfer Report` | Explains the paper's reusable research logic |
+| `markmap` | Shows the paper-to-skill thinking map |
+| generated `SKILL.md` | Compact reusable skill entry point |
+| `paper-map.md` | Paper identity and section-level research map |
+| `research-transfer.md` | Original-to-target migration table |
+| `figure-evidence-chain.md` | Figure/table logic and supported claims |
+| `method-adaptation-checklist.md` | Validation and over-transfer checklist |
+
+## 📦 Repository Structure
 
 ```text
 pdf-to-skill/
@@ -49,7 +90,7 @@ pdf-to-skill/
     └── scaffold_skill.py
 ```
 
-## Install
+## 🚀 Quick Start
 
 Copy or symlink this folder into your Codex skills directory:
 
@@ -58,33 +99,54 @@ mkdir -p ~/.codex/skills
 ln -s /path/to/pdf-to-skill ~/.codex/skills/pdf-to-skill
 ```
 
-Or copy it directly:
-
-```bash
-cp -R /path/to/pdf-to-skill ~/.codex/skills/pdf-to-skill
-```
-
-## Use In Codex
-
-Ask Codex to invoke the skill with a paper and target direction:
+Then invoke the skill in Codex:
 
 ```text
 Use $pdf-to-skill to read /path/to/paper.pdf and convert its research logic into a skill for LUAD brain metastasis.
 ```
 
-Analyze without generating a new skill:
+Analyze only, without generating a new skill:
 
 ```text
 Use $pdf-to-skill to analyze /path/to/paper.pdf and output the transfer report plus markmap only.
 ```
 
-Generate a direction-switching skill:
+Generate a new direction-switching skill:
 
 ```text
 Use $pdf-to-skill to read /path/to/paper.pdf, learn its study design, and generate a new skill for spatial transcriptomics in colorectal cancer.
 ```
 
-## Run The Extractor Directly
+## 🚀 快速开始
+
+把本文件夹复制或软链接到 Codex skills 目录：
+
+```bash
+mkdir -p ~/.codex/skills
+ln -s /path/to/pdf-to-skill ~/.codex/skills/pdf-to-skill
+```
+
+然后在 Codex 中调用：
+
+```text
+用 $pdf-to-skill 阅读 /path/to/paper.pdf，并把这篇论文的研究思路转换成一个用于“肺腺癌脑转移”方向的 skill。
+```
+
+只分析论文，不生成新 skill：
+
+```text
+用 $pdf-to-skill 分析 /path/to/paper.pdf，只输出研究思路迁移报告和 markmap。
+```
+
+生成一个新方向 skill：
+
+```text
+用 $pdf-to-skill 阅读 /path/to/paper.pdf，学习它的研究设计，并生成一个用于“结直肠癌空间转录组”的新 skill。
+```
+
+## 🔧 Direct Script Usage
+
+Extract text and coarse IMRaD sections:
 
 ```bash
 python3 scripts/extract_paper.py /path/to/paper.pdf
@@ -92,12 +154,14 @@ python3 scripts/extract_paper.py /path/to/paper.pdf
 
 Supported inputs:
 
-- `.pdf`
-- `.txt`
-- `.md`
-- `.docx`
+```text
+.pdf
+.txt
+.md
+.docx
+```
 
-The extractor writes text, metadata, and coarse section offsets to:
+The extractor writes:
 
 ```text
 /tmp/pdf_to_skill_work/
@@ -106,19 +170,17 @@ The extractor writes text, metadata, and coarse section offsets to:
 └── sections.json
 ```
 
-Optional PDF extraction tools:
+Optional dependencies:
 
 ```bash
-# Best CLI fallback for PDFs
+# Best CLI fallback for PDFs on macOS
 brew install poppler
 
 # Python fallbacks
 python3 -m pip install PyPDF2 pdfminer.six python-docx
 ```
 
-## Create A Blank Paper-Derived Skill Scaffold
-
-Use this when you already know the target direction and want a clean folder for Codex to fill after reading the paper.
+Create an empty paper-derived skill scaffold:
 
 ```bash
 python3 scripts/scaffold_skill.py \
@@ -142,20 +204,32 @@ It creates:
     └── method-adaptation-checklist.md
 ```
 
-## Generated Skill Contract
+## ⚙️ Workflow
 
-A generated paper skill should help the user apply a paper's research thinking to a new direction. It should not be a paper summary.
+```text
+Scientific paper PDF
+        │
+        ▼
+scripts/extract_paper.py
+        │
+        ├── full_text.txt
+        ├── metadata.json
+        └── sections.json
+        │
+        ▼
+Codex extracts the paper's research engine
+        │
+        ├── problem + hypothesis
+        ├── design skeleton
+        ├── methods spine
+        ├── figure evidence chain
+        └── transfer risks
+        │
+        ▼
+Generated paper-derived skill
+```
 
-The generated `SKILL.md` should include:
-
-- when to use the skill
-- the original paper's core research pattern
-- a target-switch workflow
-- reusable design modules
-- "do not over-transfer" cautions
-- references for paper map, transfer logic, figure chain, and method checklist
-
-## Markmap Overview
+## 🗺️ Markmap
 
 ```markmap
 # pdf-to-skill
@@ -186,10 +260,43 @@ The generated `SKILL.md` should include:
 ### Method adaptation checklist
 ```
 
-## Design Principles
+## 🧭 Design Principles
 
-- Extract structure, not a prose summary.
-- Preserve exact method names, endpoints, datasets, cohorts, assays, and statistical tests.
-- Separate what the original paper proved from what can only be used as inspiration.
-- Make direction switching explicit with original-to-target mappings.
-- Keep the generated `SKILL.md` compact and put detailed paper notes in `references/`.
+1. **Extract structure, not prose summary**  
+   The output should preserve the paper's transferable research design, not retell the paper paragraph by paragraph.
+
+2. **Preserve exact technical details**  
+   Keep exact method names, datasets, cohorts, assays, endpoints, thresholds, software, and statistical tests when available.
+
+3. **Separate evidence from inspiration**  
+   Clearly distinguish what the original paper proved from what can only inspire a new direction.
+
+4. **Make transfer explicit**  
+   Always map original population, variable, endpoint, method, and validation to the target direction.
+
+5. **Keep skills compact**  
+   Put the reusable core in `SKILL.md`; put detailed paper notes in `references/` for on-demand loading.
+
+## ❓ FAQ
+
+### Is this just a paper summary tool?
+
+No. A summary tells you what the paper said. `pdf-to-skill` extracts how the paper was designed, why the evidence chain works, and how that logic can be rebuilt for a new research direction.
+
+### Is this RAG?
+
+No. RAG retrieves chunks at query time. `pdf-to-skill` compiles the paper at analysis time into a reusable research-method skill with explicit transfer rules.
+
+### Can it generate a new skill from any paper?
+
+It works best for papers with clear methods, figures, validation, and a reusable research pattern. If a paper is purely descriptive or lacks enough methodological detail, the generated skill should include stronger limitations.
+
+### Can I use it for biomedical papers?
+
+Yes. The workflow is especially useful for clinical prediction, prognosis, omics, wet-lab mechanism papers, spatial transcriptomics, single-cell studies, intervention studies, and computational method papers.
+
+---
+
+<p align="center">
+  <strong>pdf-to-skill = paper reading → research logic extraction → reusable Codex skill</strong>
+</p>
