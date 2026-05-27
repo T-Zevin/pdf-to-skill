@@ -26,7 +26,7 @@
 
 ![pdf-to-skill workflow](assets/workflow.svg)
 
-## 🇬🇧 English
+## 🇬🇧 Eng
 
 `pdf-to-skill` is inspired by [`book-to-skill`](https://github.com/virgiliojr94/book-to-skill), but it solves a different problem.
 
@@ -42,7 +42,7 @@ This is not a paper summarizer. It extracts the paper's **research engine**:
 - ⚠️ over-transfer risks and failure modes
 - 🗺️ `markmap` mind map for fast review
 
-## 🇨🇳 中文
+## 🇨🇳 CN
 
 `pdf-to-skill` 受到 [`book-to-skill`](https://github.com/virgiliojr94/book-to-skill) 启发，但目标不同。
 
