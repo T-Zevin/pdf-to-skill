@@ -192,7 +192,6 @@ python3 scripts/scaffold_skill.py \
 
 It creates:
 
-![Generated skill structure](assets/output-structure.svg)
 
 ```text
 <skill-name>/
